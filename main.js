@@ -1,5 +1,8 @@
-function preload() {
+NoseX = 0
+NoseY = 0
 
+function preload() {
+mustache = loadImage("https://i.postimg.cc/fT4YChcn/151-1516315-french-mustache-clipart-transparent-background-mustache-png-removebg-preview.png")
 }
 
 function setup() {
@@ -20,14 +23,18 @@ function modelLoaded() {
 function gotPoses(results) {
     if (results.length > 0) 
        console.log(results);
-       console.log("Nose X = " + results[0].pose.nose.x );
-       console.log("Nose Y = " + results[0].pose.nose.y );
+       NoseX =  + results[0].pose.nose.x - 100 ;
+       NoseY =  + results[0].pose.nose.y + 0 ;
+
+       console.log("Nose X =" + NoseX);
+       console.log("Nose Y =" + NoseY);
     
    
     }
 
 function draw( ) {
     image(video, 0, 0, 300, 300);
+    image(mustache, NoseX, NoseY, 200, 100 )
   
 }
 
